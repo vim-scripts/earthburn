@@ -8,7 +8,8 @@ endif
 let colors_name = "earthburn"
 
 if version >= 700
-  hi CursorLine guibg=#a0a0a0
+  " NERDTree current 
+  hi CursorLine guibg=#BFB7AD gui=none
   "hi CursorColumn guibg=#e4e2e0
   hi MatchParen guifg=white guibg=#747270 gui=bold
 
@@ -24,7 +25,9 @@ if version >= 700
   "PmenuThumb
 endif
 
-hi Normal    guifg=gray30   guibg=#e8e8e0
+"hi Normal    guifg=gray30   guibg=#e8e8e0
+hi Normal    guifg=gray30   guibg=#d8cfc4
+hi Normal    guifg=gray30   guibg=#d0c8bc
 
 " Html-Titles
 hi Title      guifg=gray30 gui=none
@@ -33,36 +36,38 @@ hi Underlined  guifg=gray30 gui=underline
 hi Cursor    guifg=white   guibg=#888480
 
 hi lCursor   guifg=black   guibg=white
-hi LineNr    guifg=#b0b0a4
-hi LineNr    guifg=#C0C0b0 "b8b8ac
+hi LineNr    guifg=#B0B1A1
+
+""hi LineNr    guifg=#C0C0b0 "b8b8ac
 
 hi StatusLine guifg=white guibg=#888480 gui=none
-hi StatusLineNC guifg=#848280 guibg=#c8c4c0 gui=italic
-hi VertSplit guifg=#c0c0c0 guibg=#c0c0c0 gui=NONE
+" inactive 
+hi StatusLineNC guifg=gray40 guibg=#ABA7A4 gui=none
+hi VertSplit guifg=#ABA7A4 guibg=#ABA7A4 gui=NONE
 
 " hi Folded    guifg=#708090 guibg=#c0d0e0
-hi Folded    guifg=#B8AF86 guibg=#dcdcd4 gui=italic
+hi Folded    guifg=#8A9184 guibg=#BFB7AD gui=italic
 hi NonText guifg=#d0d0c0
 
 hi Comment   guifg=#989098 gui=italic
+hi Comment   guifg=#8A9184 gui=italic
 
-" Ruby: symbols
-hi Constant  guifg=#6A6C19
-hi String    guifg=#8E9D1A
+" ruby: symbols
+hi Constant  guifg=#6a6c19
+hi String    guifg=#8e9d1a
 
-hi Number    guifg=#6A6C19
+hi Number    guifg=#6a6c19
 hi link Float Number
 
-" Ruby: debug, mixin, scope, throw, Python: def
+" ruby: debug, mixin, scope, throw, python: def
 hi Statement guifg=#605118 gui=none
 
-" Ruby: interpolation
+" ruby: interpolation
 hi Operator gui=none
 
 " HTML: arguments
 " Ruby: classname
 hi Type  guifg=#8B762B gui=none
-
 
 " Python: Standard exceptions, True&False
 hi Structure  guifg=Sienna gui=bold,underline
@@ -72,7 +77,6 @@ hi Function   guifg=gray30
 
 hi Macro   guifg=#545250 gui=none
 hi Directory   guifg=#99822F
-
 
 hi Identifier guifg=#545250 gui=none
 
@@ -85,21 +89,21 @@ hi Conditional guifg=#722F06
 hi PreProc    guifg=#64634B gui=none
 
 " Ruby: def..end, class..end
-hi Define guifg=#9d8f42
 hi Define guifg=#685616
 
-hi Error      guifg=#a02000 guibg=white gui=bold,underline
-hi Todo       guifg=#989098 guibg=NONE gui=bold,underline
+hi Error guifg=#a02000 guibg=white gui=underline
+hi Todo guifg=#6A7164 guibg=NONE gui=underline
 
 " Python: %(...)s - constructs, encoding, D: \n etc
 " Ruby: ""
 hi Special guifg=#808000 gui=none
 
 " color of <TAB>s etc...  , NERDTRee
-hi SpecialKey guifg=#c4c2c0 gui=italic
+hi SpecialKey guifg=gray60 gui=italic
 
-
-hi Visual guibg=#FFA9E0
+" visual selection higlight
+""hi Visual guibg=#FFA9E0 "pink
+hi Visual guibg=#96CFDB "cyan
 
 " Diff
 hi DiffChange guifg=NONE guibg=#e4e2e0 gui=italic
@@ -125,7 +129,7 @@ hi link rubyClass Type
 ""hi rubyConstant                gui=none        guifg=#DC143C     guibg=white
 
 " do..end begin rescue end
-hi rubyControl                 guifg=#9C420C " 8E3E17 "742C0A
+hi rubyControl                 guifg=#9C420C
 
 ""hi rubyCurlyBlock guifg=#9C420C
 " hi rubyData                    gui=            guifg=            guibg=
@@ -156,7 +160,7 @@ hi link rubyKeyword Normal
 ""hi rubyLocalVariableOrMethod guifg=cyan
 hi link rubyModule Type
 " hi rubyNestedAngleBrackets
-hi rubyNestedCurlyBraces gui=underline
+"hi rubyNestedCurlyBraces gui=underline
 " hi rubyNestedParentheses
 " hi rubyNestedSquareBrackets
 " hi rubyNoDoBlock
