@@ -11,9 +11,9 @@ if version >= 700
   " NERDTree current 
   hi CursorLine guibg=#BFB7AD gui=none
   "hi CursorColumn guibg=#e4e2e0
-  hi MatchParen guifg=white guibg=#747270 gui=bold
+  hi MatchParen guibg=black guifg=white gui=none
 
-  hi TabLineFill guifg=#BFB39Cguibg=#BFB39C
+  hi TabLineFill guifg=#BFB39C guibg=#BFB39C
   hi TabLine guifg=gray40 guibg=#BFB39C gui=none
   hi TabLineSel guifg=gray90 guibg=#AB9876 gui=none
 
@@ -24,90 +24,83 @@ if version >= 700
   "PmenuThumb
 endif
 
-"hi Normal    guifg=gray30   guibg=#dcd8d8
-hi Normal    guifg=gray30   guibg=#ccc8c8
-hi ModeMsg guifg=gray10 guibg=#B3C71E gui=none
+"hi Normal    guifg=gray30   guibg=#e0dcd9
+"hi Normal    guifg=gray30   guibg=#d0ccc9
+hi Normal    guifg=gray30   guibg=#d8d4d4
 
+hi ModeMsg guifg=gray10 guibg=#B3C71E gui=none
+hi MoreMsg guifg=gray10 guibg=#B3C71E gui=none
+hi Question guifg=gray10 guibg=#B3C71E gui=none
+hi WarningMsg guifg=#600000  gui=none guibg=#d8d4d4
 
 " Html-Titles
-hi Title      guifg=grayl0 gui=none
+hi Title      guifg=gray30 gui=none 
+
 hi Underlined  guifg=gray30 gui=underline
-
 hi Cursor    guifg=white   guibg=#888480
-
 hi lCursor   guifg=black   guibg=white
 hi LineNr    guifg=#B0B1A1
-
-"hi LineNr    guifg=#C0C0b0 "b8b8ac
-
 hi StatusLine guifg=gray90 guibg=#888480 gui=none
-" inactive 
+
+" not current status line 
 hi StatusLineNC guifg=gray40 guibg=#ABA7A4 gui=none
 
 hi VertSplit guifg=#ABA7A4 guibg=#ABA7A4 gui=NONE
 
-" hi Folded    guifg=#708090 guibg=#c0d0e0
-hi Folded    guifg=#8A9184 guibg=#c0bcbc gui=italic
-
 " unused areas marked with ~
-hi NonText gui=none guifg=#ccc8c8
+hi NonText gui=none guifg=#d8d4d4
 
 hi Comment   guifg=#8A9184 gui=italic
+hi Comment   guifg=#8A919c gui=italic
 
 " ruby: symbols
-hi Constant  guifg=#6a6c19
-hi String    guifg=#8e9d1a
-
-
-hi Number    guifg=#6a6c19
+hi Constant  guifg=#75722F
+hi String    guifg=#8D9902
+hi link Character String
+hi link Number Constant
 hi link Float Number
 
 " ruby: debug, mixin, scope, throw, python: def
 hi Statement guifg=#605118 gui=none
-hi Statement guifg=gray30 gui=none
-""hi Statement guifg=#85513D gui=none
+hi Keyword guifg=#605118 gui=none
 
 " ruby: interpolation
 hi Operator gui=none
 
 " HTML: arguments
 " Ruby: classname
-hi Type  guifg=#8B762B gui=none
+hi Type  gui=none guifg=#907800
 
 " Python: Standard exceptions, True&False
-hi Structure  guifg=Sienna gui=bold,underline
+""hi Structure  guifg=Sienna gui=bold,underline
 
 " Ruby: method definitions and calls
-hi Function   guifg=gray30
+hi Identifier guifg=#685616 gui=none
+""hi Function   guifg=#685616
 
-hi Macro   guifg=#545250 gui=none
-hi Directory   guifg=#99822F
+hi Directory   guifg=#907800
 
-hi Identifier guifg=#545250 gui=none
-
-hi Repeat      guifg=#9C420C
+hi Repeat      guifg=#480000 gui=none
 
 " Ruby: if..else..end
-hi Conditional guifg=#730000""682805"" 7A2A0F
+hi Conditional guifg=#730000
 
 " Ruby: require
 hi PreProc    guifg=#64634B gui=none
 
+hi Folded guifg=#64634B guibg=#c8c4c0 gui=none
+
 " Ruby: def..end, class..end
-hi Define guifg=#685616
+""hi Define guifg=#685616
 
 " used by help tags * |
-hi Ignore guifg=#A8A890"A0A191
-
+hi Ignore guifg=#A8A890
 
 hi Error guifg=#a02000 guibg=white gui=underline
+
 hi Todo guifg=#6A7164 guibg=NONE gui=underline
 
-hi Delimiter guifg=#9C9E6C
-
-hi Search guibg=#FFE9A8
-hi helpTag guifg=#5E7A7C  gui=underline guibg=red
-hi Tag guifg=#5E7A7C  gui=underline guibg=red
+hi Search guibg=#F0D890 ""C0D878""FFE9A8
 
 " Python: %(...)s - constructs, encoding, D: \n etc
 " Ruby: ""
@@ -116,10 +109,13 @@ hi Special guifg=#808000 gui=none
 " color of <TAB>s etc...  , NERDTRee
 hi SpecialKey guifg=gray60 gui=italic
 
+
 " visual selection higlight
 hi Visual guibg=#A8E4FF
+hi Visual guibg=#F0F0C0
 
-hi Delimiter guifg=#9C9E6C
+" string interpolation
+hi Delimiter guifg=#6B6A17
 
 " Diff
 hi DiffChange guifg=NONE guibg=#e4e2e0 gui=italic
@@ -141,47 +137,48 @@ hi link hamlPreDef hamlHtmlTag
 hi link hmlHtmlTagEndl hamlHtmlTag
 
 " hi rubyASCIICode
-hi rubyAccess guifg=#99642F
+hi rubyAccess guifg=#939264
 "hi rubyAttribute guifg=red gui=underline
-hi rubyBeginEnd guifg=#B0582D gui=underline
 "hi rubyBlock                   gui=underline
-hi rubyBlockArgument gui=underline
-hi rubyBlockParameter guifg=gray20
+"hi rubyBlockArgument gui=underline
+"hi rubyBlockParameter guifg=gray20
 hi link rubyClass Type
 
 ""hi rubyClassVariable           gui=none        guifg=#556B2F     guibg=white
-"hi rubyConstant                gui=none        guifg=#DC143C     guibg=white
+""hi rubyConstant                gui=none        guifg=#DC143C     guibg=white
 
 " do..end begin rescue end
-hi rubyControl                 guifg=#9C420C
-hi rubyControl                 guifg=#990000
+hi link rubyControl Repeat
+
+"for somre reason begin end in erb is tied to this color instead of Conditional and Control
+hi link rubyBeginEnd Repeat 
 
 "hi rubyCurlyBlock guifg=#9C420C
 "hi rubyData                    gui=            guifg=            guibg=
 "hi rubyDataDirective           gui=            guifg=            guibg=
-"hi rubyDefine gui=none
+hi link rubyDefine Function
 "hi rubyDelimEscape
 "hi rubyDoBlock guifg=SlateBlue guibg=red
 "hi rubyDocumentation           gui=            guifg=            guibg=
 "hi rubyError
 "hi rubyEscape
 "hi rubyEval
-"hi rubyException               gui=underline
+hi rubyException               guifg=#8C4D38
 "hi rubyExprSubst               gui=underline        guifg=#FF4500
 "hi rubyFloat
-hi rubyFunction                gui=none        guifg=#685616
+""hi rubyFunction                gui=none        guifg=#685616
 "hi rubyGlobalVariable          gui=none            guifg=cyan
 hi link rubyHeredocStart Comment
 hi link rubyHeredocEnd Comment
 "hi rubyIdentifier              gui=underline
 "hi rubyInclude                 gui=            guifg=            guibg=
- hi rubyInstanceVariable        gui=none            guifg=gray20
+"hi rubyInstanceVariable        gui=none            guifg=gray20
 "hi rubyInteger
 "hi rubyInterpolation guifg=Orange
 "hi rubyIterator                gui=underline        guifg=black
 hi link rubyKeyword Normal
 " hi rubyKeywordAsMethod
-hi rubyLocalVariableOrMethod gui=underline guifg=cyan
+""hi rubyLocalVariableOrMethod gui=underline guifg=cyan
 hi link rubyModule Type
 "hi rubyNestedAngleBrackets
 "hi rubyNestedCurlyBraces gui=underline
@@ -193,12 +190,12 @@ hi link rubyModule Type
 hi link rubyOperator Normal
 "hi rubyOptDoBlock gui=underline
 "hi rubyOptDoLine
-"hi rubyPredefinedConstant      gui=            guifg=            guibg=
-"hi rubyPredefinedIdentifier    gui=            guifg=            guibg=
-"hi rubyPredefinedVariable      gui=            guifg=            guibg=
+hi rubyPredefinedConstant      guifg=gray40
+hi rubyPredefinedIdentifier    guifg=gray40
+hi rubyPredefinedVariable      guifg=gray40
 "hi rubyPseudoVariable
 "hi rubySharpBang               gui=            guifg=            guibg=
 "hi rubySpaceError
-hi rubySymbol                  gui=none        guifg=#6A6C19
+""hi rubySymbol                  gui=none        guifg=#9E9C096A6C19
 
 "hi rubyTodo                    gui=            guifg=            guibg=
